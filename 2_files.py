@@ -10,19 +10,22 @@
 4. Замените точки в тексте на восклицательные знаки
 5. Сохраните результат в файл referat2.txt
 """
+from pathlib import Path
+
 
 def main():
     """
     Эта функция вызывается автоматически при запуске скрипта в консоли
     В ней надо заменить pass на ваш код
     """
-    file = 'referat.txt'
-    with open(file, 'r', encoding='utf-8') as file:
-        content = file.read()
-        print(len(content.split()))
-    with open('referat2.txt', 'w', encoding='utf-8') as result:
-        result.write(content.replace('.', '!'))
-
+    file_path = Path('referat.txt')
+    content = file_path.read_text(encoding='utf-8')
+    print(f"Длина текста: {len(content)} символов")
+    word_count = len(content.split())
+    print(f"Количество слов: {word_count}")
+    modified_content = content.replace('.', '!')
+    result_path = Path('referat2.txt')
+    result_path.write_text(modified_content, encoding='utf-8')
 
 
 if __name__ == "__main__":
