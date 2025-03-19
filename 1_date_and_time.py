@@ -15,12 +15,10 @@ def print_days():
     Эта функция вызывается автоматически при запуске скрипта в консоли
     В ней надо заменить pass на ваш код
     """
-    delta_one_day = timedelta(days=1)
-    delta_thirty_days = timedelta(days=30)
     today = datetime.now()
-    yesterday = today - delta_one_day
-    tommorrow = today + delta_one_day
-    thirty_days_ago = today - delta_thirty_days
+    yesterday = today - timedelta(days=1)
+    tommorrow = today + timedelta(days=1)
+    thirty_days_ago = today - timedelta(days=30)
     print(yesterday.strftime('%Y-%m-%d'))
     print(today.strftime('%Y-%m-%d'))
     print(tommorrow.strftime('%Y-%m-%d'))
